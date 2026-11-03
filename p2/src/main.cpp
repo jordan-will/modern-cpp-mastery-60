@@ -5,6 +5,7 @@
 #include <iostream>
 #include <stdexcept>
 #include "Device.hpp"
+#include "utils.hpp"
 
 // Helper function to print visual test headers
 void print_header(const std::string& title) {
@@ -15,13 +16,13 @@ void print_header(const std::string& title) {
 
 int main() {
     // ---------------------------------------------------------
-    // TEST 1: Successful instantiation and info display
+    // TEST 1: Successful instantiation and info display using utils
     // ---------------------------------------------------------
     print_header("Valid Device Creation");
     try {
         Device sensor_temp("SENSOR_TEMP_01", 30);
         std::cout << "[Success] Device created successfully!\n";
-        sensor_temp.info();
+        print_device_info(sensor_temp);
     } catch (const std::exception& e) {
         std::cerr << "[Unexpected Error]: " << e.what() << "\n";
     }
@@ -56,14 +57,14 @@ int main() {
         Device atuador("ACTUATOR_VALVE_05", 10);
         std::cout << "Initial state -> ";
         std::cout << "Interval: " << atuador.get_transmission_interval() << "s | ";
-        std::cout << "Mode: " << atuador.get_operation_mode() << "\n";
+        std::cout << "Mode: " << modeToString(atuador.get_operation_mode()) << "\n";
 
         // Changing parameters while inactive (Should succeed)
         atuador.set_transmission_interval(120);
         atuador.set_operation_mode(OperationMode::PowerSaving);
 
         std::cout << "[Success] Parameters modified while device was inactive!\n";
-        atuador.info();
+        print_device_info(atuador);
 
     } catch (const std::exception& e) {
         std::cerr << "[Unexpected Error]: " << e.what() << "\n";
@@ -78,7 +79,7 @@ int main() {
         
         // Activating the device
         medidor.activate_device();
-        std::cout << "Device activated. Current status: " << medidor.get_device_status() << "\n";
+        std::cout << "Device activated. Current status: " << statusToString(medidor.get_device_status()) << "\n";
 
         // Trying to change interval while active (Should throw logic_error)
         std::cout << "Trying to change transmission interval while device is active...\n";
@@ -107,7 +108,7 @@ int main() {
         // Reactivating
         gateway.activate_device();
         std::cout << "[Success] Configuration applied and device reactivated successfully!\n";
-        gateway.info();
+        print_device_info(gateway);
 
     } catch (const std::exception& e) {
         std::cerr << "[Unexpected Error]: " << e.what() << "\n";
