@@ -1,0 +1,34 @@
+# ==========================================
+# VS Code (Caches e Configurações Locais)
+# ==========================================
+.vscode/
+
+# ==========================================
+# Ferramentas de Build (CMake e Makefiles)
+# ==========================================
+# Ignora a pasta build do p2 e de qualquer outro projeto futuro
+**/build/
+**/builds/
+
+# Ignora arquivos gerados por execuções manuais do CMake fora da pasta build
+CMakeCache.txt
+CMakeFiles/
+CMakeTargetDirectories.txt
+cmake_install.cmake
+Makefile
+
+
+# ==========================================
+# Regras Gerais para Binários e Compilação
+# ==========================================
+*.o
+*.obj
+*.out
+*.exe
+*.app
+
+# ==========================================
+# Executáveis Compilados
+# ==========================================
+# Ignora qualquer arquivo ou executável chamado "demo" em qualquer subpasta
+**/demo
