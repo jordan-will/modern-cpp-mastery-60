@@ -21,7 +21,5 @@ A curated collection of 60 progressive programs focused on **Modern C++ (C++20)*
 
 ## Progress Tracker
 
-*As you complete each program, they will be listed here:*
-
 - [x] **Exercise 01** — Sensor Data Analyzer
 - [x] **Exercise 02** —  Device Configuration Manager
