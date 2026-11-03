@@ -8,6 +8,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_executable(demo
     src/main.cpp
     src/Device.cpp
+    src/utils.cpp
 )
 
 target_include_directories(demo PRIVATE
