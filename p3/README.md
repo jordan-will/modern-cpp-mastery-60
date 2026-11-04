@@ -4,8 +4,6 @@ Level 2 — Integration
 
 Block 01 · Exercise 03
 
-30–40 min
-
 ## 1. C++ topics
 
 Os principais assuntos envolvidos serão:
